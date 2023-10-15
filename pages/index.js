@@ -1,118 +1,113 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import { FaGooglePlay } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Home() {
+  const [showIframe, setShowIframe] = useState(false);
+
+  const logos = [
+    { src: "/logos/solana.png", alt: "Solana Logo", width: 110 },
+    // { src: "/logos/phantom.png", alt: "Phantom Wallet Logo", width: 30 },
+    { src: "/logos/helius.png", alt: "Helius Logo", width: 110 },
+    { src: "/logos/orca.png", alt: "Orca Logo", width: 125 },
+    { src: "/logos/shyft.png", alt: "Shyft SDK Logo", width: 80 },
+    { src: "/logos/solanafm.png", alt: "solanafm Logo", width: 110 },
+    { src: "/logos/sphere.png", alt: "Sphere Logo", width: 110 },
+    { src: "/logos/symmetry.png", alt: "symmetry Logo", width: 125 },
+    { src: "/logos/zeta.png", alt: "Zeta Logo", width: 80 },
+    { src: "/logos/marinade.png", alt: "marinade Logo", width: 110 },
+    { src: "/logos/jupiter.png", alt: "jupiter Logo", width: 50 },
+    { src: "/logos/jito.png", alt: "Jito Logo", width: 60 },
+    { src: "/logos/ironforge.svg", alt: "Ironforge Logo", width: 40 },
+  ];
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="bg-color h-screen items-center">
+        <Navbar />
+        <div className="home-container">
+          <div className=" flex flex-col">
+            <div className="flex items-start pt-[60px]">
+              <div className="flex flex-col max-w-[600px] ml-[100px]  ">
+                <h1 className="text-[#F8F7F7] text-[40px] main-title  pb-5">
+                  Chew<span className="gradient-text">Glass</span> GPT
+                </h1>
+                <h2 className="text-[#F8F7F7] font-normal text-[20px] mt-3 tracking-wide	">
+                  Making the developer experience on{" "}
+                  <span className="gradient-text">Solana</span>
+                  &nbsp;seamless with AI-Powered Interactive Code
+                  Documentation.
+                </h2>
+                <div className="h-[1px] bg-[#F8F7F7] max-w-[550px] mt-5 mb-2"></div>
+                <h3 className="text-[#F8F7F7] font-normal text-[14px] tracking-wide	 ">
+                  Built by developers, for developers.
+                </h3>
+
+                <div className="flex pt-[50px]">
+                  <button
+                    className="try-beta-btn"
+                    onClick={() => setShowIframe(!showIframe)}
+                  >
+                    Try Beta
+                    <FaGooglePlay className="ml-3 activate-arrow" />
+                  </button>
+
+                  <div className="relative border-b border-gray-500 inline-block cursor-pointer bg-[#000] mt-auto ml-auto">
+                    <input
+                      type="email"
+                      placeholder="your email"
+                      aria-label="Enter your email"
+                      className="py-2 pr-12 pl-2 border-none outline-none focus:ring-0 focus:border-none bg-[#000] text-[#F8F7F7] text-[16px] font-semibold"
+                    />
+                    <button
+                      type="button"
+                      aria-label="Submit email"
+                      className="absolute right-0 top-0 py-2 px-2 focus:outline-none"
+                    >
+                      <FaArrowRight color="white" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* logo container */}
+
+                <div className="logo-container grid grid-cols-4 gap-10 pt-[50px]">
+                  {logos.map((logo, index) => (
+                    <div
+                      className="flex justify-center items-center bg-[#000]  w-[125px] h-[50px] rounded-md m-2"
+                      key={index}
+                    >
+                      <Image
+                        key={index}
+                        src={logo.src}
+                        width={logo.width}
+                        height={10}
+                        alt={`Logo ${index + 1}`}
+                        className="object-cover items-start justify-center"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <h3 className="text-[rgba(255,255,255,0.75)] text-center mt-5 font-normal text-[12px] ">
+                  Supporting the most ambitious teams{" "}
+                </h3>
+              </div>
+              {showIframe && (
+                <iframe
+                  className="ml-auto mr-[100px]"
+                  src="https://docsbot.ai/iframe/AQlopPkXnxW7eKsGqeSe/lnPRMgAXQgaYl0JG0uXj"
+                  width="500"
+                  height="650"
+                  frameBorder="0"
+                  allowTransparency="true"
+                ></iframe>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }

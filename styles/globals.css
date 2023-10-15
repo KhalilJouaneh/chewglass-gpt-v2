@@ -2,26 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: Poppins;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+
+.home-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  height: 100%;
+}
+
+.bg-gradient {
+  border: 1px solid blue;
+}
+
+.bg-color {
+  height: 100vh;
+  background-color: black;
+  background-image: radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.2) 2px,
+      transparent 5px
+    ),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 5px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 5px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 5px
+    );
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.gradient-text {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    50deg,
+    #714dff,
+    #9c83ff 31.28%,
+    #e151ff 77.97%,
+    #fff759 95%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.try-beta-btn {
+  border-radius: 12px;
+  background: radial-gradient(
+      44.85% 58.44% at 60.46% 100%,
+      rgba(255, 255, 255, 0.21) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      52.67% 139.16% at 31.37% 0%,
+      rgba(255, 255, 255, 0.46) 0%,
+      rgba(255, 255, 255, 0) 77.6%
+    ),
+    radial-gradient(
+      85.69% 85.69% at 102.47% 39.73%,
+      #b566e5 0%,
+      rgba(181, 102, 229, 0) 77.6%
+    ),
+    radial-gradient(
+      111.57% 111.57% at 86.12% 6.46%,
+      #ff1c89 0%,
+      rgba(229, 102, 163, 0) 56.56%
+    ),
+    radial-gradient(
+      74.64% 74.64% at 0% 67.49%,
+      #5666ef 0%,
+      rgba(86, 102, 239, 0) 69.33%
+    ),
+    radial-gradient(
+      132.04% 132.04% at -3.99% 35.36%,
+      #06f 0%,
+      rgba(0, 78, 255, 0) 69.33%
+    ),
+    #d0e0f3;
+
+  backdrop-filter: blur(10px);
+  width: 175px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+
+  color: rgb(0, 0, 0, 0.8);
+  /* box-shadow: 0px 0px 18px 0px rgba(255, 255, 255, 0.82) inset; */
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.try-beta-btn:hover {
+  box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.82);
+}
+
+.main-title {
+  font-family: Poppins;
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* animation for buttons */
+
+.activate-arrow {
+  margin-left: 10px; /* Original margin */
+  transition: margin-left 0.3s ease; /* Smooth transition for the arrow movement */
+}
+
+.try-beta-btn:hover .activate-arrow {
+  margin-left: 25px;
+  transition: margin-left 0.3s ease;
+}
+
+/* end of animation */
