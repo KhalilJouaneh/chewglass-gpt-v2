@@ -1,13 +1,23 @@
 import Navbar from "@/components/Navbar";
 import { FaGooglePlay, FaArrowRight } from "react-icons/fa";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { GiElfHelmet } from "react-icons/gi";
 import { IoIosPerson } from "react-icons/io";
+// import ReactMarkdown from "react-markdown";
+import Markdown from "@/utils/Markdown";
+import styles from "../../styles/Home.module.css";
+import { Scrollbar } from "react-scrollbars-custom";
+import ReactLoading from "react-loading";
 
 export default function Chat() {
   const [input, setInput] = useState("");
   const [chats, setChats] = useState([]);
-  const [loading, setLoading] = useState(false); // state to handle loading
+  const [loading, setLoading] = useState(false);
+  const divRef = useRef(null);
+
+  const LoadingAnimation = ({ type, color }) => (
+    <ReactLoading type={type} color={color} height={25} width={40} />
+  );
 
   async function postChat(question) {
     setLoading(true); // set loading to true when starting the API call
@@ -68,65 +78,83 @@ export default function Chat() {
 
   return (
     <>
-      <div className="bg-color h-screen flex justify-center pt-10">
-        {/* <Navbar /> */}
-        <div className="chat-container">
-          <div className="chat-history">
-            {chats.map((chat, index) => (
-              <>
-                <div key={index} className={`flex items-center text-[#F8F7F7]`}>
+      <div className="bg-color h-[100%]">
+        <Navbar />
+        <div className=" flex justify-center pt-10">
+          <div className="chat-container">
+            {/* <Scrollbar
+          maximalThumbSize={100}
+          trackYProps={{
+            style: { backgroundColor: "transparent", right: "-5px" },
+          }}
+          thumbYProps={{
+            style: { backgroundColor: "#014F52", width: "5px" },
+          }}
+        > */}
+            <div className="chat-history">
+              {chats.map((chat, index) => (
+                <React.Fragment key={index}>
                   <div
-                    style={{
-                      flexShrink: 0,
-                      flexGrow: 0,
-                      width: "55px",
-                      padding: "20px 0",
-                    }}
+                    className={`flex ${
+                      chat.type === "answer" ? "items-start" : "items-center"
+                    } text-[#F8F7F7] w-[100%] ${
+                      index < chats.length - 1 ? "border-b" : ""
+                    }`}
                   >
                     <div
-                      className={`icon-container ${
-                        chat.type === "answer" ? "bg-black" : "bg-white"
-                      }`}
+                      style={{
+                        flexShrink: 0,
+                        flexGrow: 0,
+                        width: "55px",
+                        padding: "20px 0",
+                      }}
                     >
-                      {chat.type === "answer" ? (
-                        <GiElfHelmet size={23} />
-                      ) : (
-                        <IoIosPerson size={30} color="black" />
-                      )}
+                      <div
+                        className={`icon-container ${
+                          chat.type === "answer" ? "bg-black" : "bg-white"
+                        }`}
+                      >
+                        {chat.type === "answer" ? (
+                          <GiElfHelmet size={23} />
+                        ) : (
+                          <IoIosPerson size={30} color="black" />
+                        )}
+                      </div>
                     </div>
+                    {chat.type === "answer" ? (
+                      <div className={`${styles.markdownanswer} mt-5`}>
+                        <Markdown markdown={chat.text} />
+                      </div>
+                    ) : (
+                      <span>{chat.text}</span>
+                    )}
                   </div>
-                  <span>{chat.text}</span>
+                  {index < chats.length - 1 ? (
+                    <div className="separator"></div>
+                  ) : null}
+                </React.Fragment>
+              ))}
+              {loading && (
+                <div className="loading">
+                  {LoadingAnimation("balls", "#ffffff")}
                 </div>
-                {index < chats.length - 1 ? (
-                  <div className="separator"></div>
-                ) : null}
-              </>
-            ))}
-            {loading && <div className="loading">...</div>}
+              )}
+            </div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={input}
+                onChange={handleInput}
+                placeholder="Type your question"
+              />
+              <button type="submit" className="send-button">
+                Send
+              </button>
+            </form>
+            {/* </Scrollbar> */}
           </div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={input}
-              onChange={handleInput}
-              placeholder="Type your question"
-            />
-            <button type="submit" className="send-button">
-              Send
-            </button>
-          </form>
         </div>
       </div>
     </>
   );
-}
-
-{
-  /* <iframe
-  ref={iframeRef}
-  style={{ width: "80vw", height: "90vh" }}
-  src="https://docsbot.ai/iframe/AQlopPkXnxW7eKsGqeSe/lnPRMgAXQgaYl0JG0uXj"
-  frameBorder="0"
-  allowTransparency="true"
-></iframe> */
 }

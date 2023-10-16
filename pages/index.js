@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-color h-screen items-center">
+      <div className="bg-color h-screen items-center overflow-hidden">
         <Navbar />
         <div className="home-container">
           <div className=" flex flex-col">

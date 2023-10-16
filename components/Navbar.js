@@ -10,9 +10,9 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="flex ml-[100px] navbar-items text-[#F8F7F7] font-semibold text-[14px]">
               <Image
-                src="/logo.svg"
+                src="/new_logo.png"
                 alt="ChewGlass GPT Logo"
-                width={30}
+                width={40}
                 height={20}
                 className="mr-2"
               />

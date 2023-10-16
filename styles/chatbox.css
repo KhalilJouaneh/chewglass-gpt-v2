@@ -1,6 +1,6 @@
 .chat-container {
-  width: 90vw; /* Adjusted to take up 90% of the viewport's width */
-  height: 90vh; /* Adjusted to take up 90% of the viewport's height */
+  width: 80vw; /* Adjusted to take up 90% of the viewport's width */
+  height: 80vh; /* Adjusted to take up 90% of the viewport's height */
   margin: 0vh auto;
   background: #18181a;
   padding: 20px;
@@ -40,7 +40,7 @@
 
 .answer {
   display: flex;
-  /* align-items: center;  */
+  align-items: center;
   text-align: left;
 }
 
@@ -57,7 +57,7 @@ input {
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #a1a1aa;
-  color: #F8F7F7;
+  color: #f8f7f7;
   border-radius: 5px;
   background: #09090b;
 }
@@ -75,30 +75,27 @@ input {
 }
 
 .send-button:hover {
-  background: #45a049;
+  background: #a1a1aa;
+  color: #09090b;
 }
 
 .icon-container {
   flex-shrink: 0;
   width: 36px;
   height: 36px;
-  background-color: gray;
+  background-color: #a1a1aa;
   display: flex;
   padding: 2px;
   justify-content: center;
   align-items: center;
   border-radius: 6px;
   margin-right: 10px;
-  border: 1px solid gray;
+  border: 1px solid #a1a1aa;
 }
 
 .separator {
-  height: 1px;
-  background-color: gray; /* Or any color you prefer */
-  max-width: 550px;
-  margin-top: 5px;
-  margin-bottom: 2px;
-  width: 100%; /* This will make it responsive */
+  width: 100%;
+  margin: 5px 0;
 }
 
 .bg-black {
@@ -107,4 +104,15 @@ input {
 
 .bg-white {
   background-color: #fff;
+}
+
+/* markdown answer */
+.loading {
+  width: 100%;
+  flex-grow: 1;
+  /* other styles */
+}
+
+.border-bottom {
+  border-bottom: 1px solid #a1a1aa;
 }
