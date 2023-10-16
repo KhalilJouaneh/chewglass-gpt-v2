@@ -5,7 +5,8 @@
   background: #18181a;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
+    /* Original shadow */ 0 0 20px rgba(255, 255, 255, 0.3); /* Glow effect */
   display: flex;
   flex-direction: column;
 }
@@ -115,4 +116,31 @@ input {
 
 .border-bottom {
   border-bottom: 1px solid #a1a1aa;
+}
+
+.starter-option {
+  border-radius: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.starter-option:hover {
+  background: linear-gradient(
+    50deg,
+    #714dff,
+    #9c83ff 31.28%,
+    #e151ff 77.97%,
+    #fff759 95%
+  );
+}
+
+.option-title {
+  color: rgba(248, 247, 247, 1);
+}
+
+.option-subtitle {
+  color: rgba(248, 247, 247, 0.75);
 }

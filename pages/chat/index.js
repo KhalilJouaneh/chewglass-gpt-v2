@@ -15,6 +15,50 @@ export default function Chat() {
   const [loading, setLoading] = useState(false);
   const divRef = useRef(null);
 
+  const [showStarters, setShowStarters] = useState(true);
+
+  const handleStarterSelect = (question) => {
+    setInput(question);
+    setShowStarters(false);
+  };
+
+  const StarterOptions = ({ onSelect }) => {
+    const options = [
+      {
+        title: "Underdog API",
+        subtitle: "What can I build using Underdog API?",
+      },
+      { title: "UXD", subtitle: "Why should I mint UXD?" },
+      { title: "Helius", subtitle: "Write code to query NFTs using Helius." },
+      { title: "Jupiter", subtitle: "Use the Jupiter API to create a swap transaction." },
+    ];
+
+    return (
+      <div className="starter-options-container fixed bottom-[20%] left-1/2 transform -translate-x-1/2 pb-4">
+        <div className="grid grid-cols-2 gap-7">
+          {options.map((option, index) => (
+            <div
+              key={index}
+              className="starter-option cursor-pointer text-center border border-[#a1a1aa] rounded shadow"
+              onClick={() => onSelect(option.subtitle)}
+            >
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="option-title font-semibold text-left pb-1 pt-1">
+                    {option.title}
+                  </div>
+                  <div className="option-subtitle font-normal text-sm pb-1">
+                    {option.subtitle}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   const LoadingAnimation = ({ type, color }) => (
     <ReactLoading type={type} color={color} height={25} width={40} />
   );
@@ -91,6 +135,7 @@ export default function Chat() {
             style: { backgroundColor: "#014F52", width: "5px" },
           }}
         > */}
+
             <div className="chat-history">
               {chats.map((chat, index) => (
                 <React.Fragment key={index}>
@@ -139,7 +184,11 @@ export default function Chat() {
                   {LoadingAnimation("balls", "#ffffff")}
                 </div>
               )}
+              {showStarters && (
+                <StarterOptions onSelect={handleStarterSelect} />
+              )}
             </div>
+
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
