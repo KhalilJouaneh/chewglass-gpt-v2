@@ -1,0 +1,110 @@
+.chat-container {
+  width: 90vw; /* Adjusted to take up 90% of the viewport's width */
+  height: 90vh; /* Adjusted to take up 90% of the viewport's height */
+  margin: 0vh auto;
+  background: #18181a;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #a1a1aa;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.question,
+.answer {
+  max-width: 90%; /* Ensure it doesn’t go outside the chat-history */
+  word-wrap: break-word; /* To prevent overflow by breaking long words */
+}
+
+.question {
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: #e1f5fe; /* light blue background for questions */
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.answer {
+  display: flex;
+  /* align-items: center;  */
+  text-align: left;
+}
+
+.answer > * {
+  margin-right: 10px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #a1a1aa;
+  color: #F8F7F7;
+  border-radius: 5px;
+  background: #09090b;
+}
+
+.send-button {
+  padding: 10px 50px;
+  border: none;
+  background: #09090b;
+  color: #a1a1aa;
+  border-radius: 5px;
+  border: 1px solid #a1a1aa;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-button:hover {
+  background: #45a049;
+}
+
+.icon-container {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-color: gray;
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  margin-right: 10px;
+  border: 1px solid gray;
+}
+
+.separator {
+  height: 1px;
+  background-color: gray; /* Or any color you prefer */
+  max-width: 550px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  width: 100%; /* This will make it responsive */
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.bg-white {
+  background-color: #fff;
+}

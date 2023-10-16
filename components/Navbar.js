@@ -12,11 +12,11 @@ const Navbar = () => {
               <Image
                 src="/logo.svg"
                 alt="ChewGlass GPT Logo"
-                width={20}
+                width={30}
                 height={20}
                 className="mr-2"
               />
-              Chew<span className="gradient-text">Glass</span>&nbsp;Labs
+              {/* Chew<span className="gradient-text">Glass</span>&nbsp;Labs */}
             </div>
           </div>
 

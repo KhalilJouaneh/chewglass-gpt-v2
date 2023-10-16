@@ -9,19 +9,22 @@ export default function Home() {
   const [showIframe, setShowIframe] = useState(false);
 
   const logos = [
-    { src: "/logos/solana.png", alt: "Solana Logo", width: 110 },
-    // { src: "/logos/phantom.png", alt: "Phantom Wallet Logo", width: 30 },
-    { src: "/logos/helius.png", alt: "Helius Logo", width: 110 },
-    { src: "/logos/orca.png", alt: "Orca Logo", width: 125 },
-    { src: "/logos/shyft.png", alt: "Shyft SDK Logo", width: 80 },
-    { src: "/logos/solanafm.png", alt: "solanafm Logo", width: 110 },
-    { src: "/logos/sphere.png", alt: "Sphere Logo", width: 110 },
-    { src: "/logos/symmetry.png", alt: "symmetry Logo", width: 125 },
-    { src: "/logos/zeta.png", alt: "Zeta Logo", width: 80 },
-    { src: "/logos/marinade.png", alt: "marinade Logo", width: 110 },
-    { src: "/logos/jupiter.png", alt: "jupiter Logo", width: 50 },
-    { src: "/logos/jito.png", alt: "Jito Logo", width: 60 },
-    { src: "/logos/ironforge.svg", alt: "Ironforge Logo", width: 40 },
+    { src: "/logos/solana.png", alt: "Solana Logo", width: 100 },
+    { src: "/logos/helius.png", alt: "Helius Logo", width: 100 },
+    { src: "/logos/orca.png", alt: "Orca Logo", width: 115 },
+    { src: "/logos/shyft.png", alt: "Shyft SDK Logo", width: 70 },
+    { src: "/logos/solanafm.png", alt: "solanafm Logo", width: 90 },
+    { src: "/logos/sphere.png", alt: "Sphere Logo", width: 100 },
+    { src: "/logos/symmetry.png", alt: "symmetry Logo", width: 100 },
+    { src: "/logos/uxd.png", alt: "UXD Logo", width: 65 },
+    { src: "/logos/zeta.png", alt: "Zeta Logo", width: 75 },
+    { src: "/logos/marinade.png", alt: "marinade Logo", width: 100 },
+    { src: "/logos/jupiter.png", alt: "jupiter Logo", width: 40 },
+    { src: "/logos/jito.png", alt: "Jito Logo", width: 50 },
+    { src: "/logos/ironforge.svg", alt: "Ironforge Logo", width: 35 },
+    { src: "/logos/underdog.png", alt: "Underdog Logo", width: 250 },
+    { src: "/logos/phantom2.png", alt: "Phantom", width: 220 },
+    { src: "/logos/backpack.svg", alt: "Backpack Logo", width: 100 },
   ];
 
   return (
@@ -30,8 +33,8 @@ export default function Home() {
         <Navbar />
         <div className="home-container">
           <div className=" flex flex-col">
-            <div className="flex items-start pt-[60px]">
-              <div className="flex flex-col max-w-[650px] ml-[100px]  ">
+            <div className="flex items-start pt-8">
+              <div className="flex flex-col max-w-[700px] ml-[100px]  ">
                 <h1 className="text-[#F8F7F7] text-[40px] main-title  pb-5">
                   Chew<span className="gradient-text">Glass</span> GPT
                 </h1>
@@ -43,6 +46,7 @@ export default function Home() {
                 <div className="h-[1px] bg-[#F8F7F7] max-w-[550px] mt-5 mb-2"></div>
                 <h3 className="text-[#F8F7F7] font-normal text-[14px] tracking-wide	 ">
                   Built by developers, for developers.
+                  {/* The days of chewing glass are over. */}
                 </h3>
 
                 <div className="flex pt-[50px]">
@@ -56,7 +60,7 @@ export default function Home() {
                     </button>
                   </Link>
 
-                  <div className="relative border-b border-gray-500 inline-block cursor-pointer bg-[#000] mt-auto ml-auto">
+                  {/* <div className="relative border-b border-gray-500 inline-block cursor-pointer bg-[#000] mt-auto ml-auto">
                     <input
                       type="email"
                       placeholder="your email"
@@ -70,12 +74,12 @@ export default function Home() {
                     >
                       <FaArrowRight color="white" />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* logo container */}
 
-                <div className="logo-container grid grid-cols-4 gap-10 pt-[50px]">
+                <div className="logo-container grid grid-cols-4 gap-4 pt-[50px]">
                   {logos.map((logo, index) => (
                     <div
                       className="flex justify-center items-center bg-[#000]  w-[125px] h-[50px] rounded-md m-2"
@@ -98,11 +102,11 @@ export default function Home() {
               </div>
 
               <Image
-                src="/spin.gif"
-                width={700}
+                src="/blob.gif"
+                width={600}
                 height={600}
                 alt="Spinner GIF"
-                className="mr-auto ml-auto pb-10"
+                className="mr-auto ml-auto "
                 draggable={false}
               />
             </div>
