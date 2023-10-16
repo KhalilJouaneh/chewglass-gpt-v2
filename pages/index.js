@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import { FaGooglePlay } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
@@ -30,15 +31,14 @@ export default function Home() {
         <div className="home-container">
           <div className=" flex flex-col">
             <div className="flex items-start pt-[60px]">
-              <div className="flex flex-col max-w-[600px] ml-[100px]  ">
+              <div className="flex flex-col max-w-[650px] ml-[100px]  ">
                 <h1 className="text-[#F8F7F7] text-[40px] main-title  pb-5">
                   Chew<span className="gradient-text">Glass</span> GPT
                 </h1>
                 <h2 className="text-[#F8F7F7] font-normal text-[20px] mt-3 tracking-wide	">
                   Making the developer experience on{" "}
                   <span className="gradient-text">Solana</span>
-                  &nbsp;seamless with AI-Powered Interactive Code
-                  Documentation.
+                  &nbsp;seamless with AI-Powered Interactive Code Documentation.
                 </h2>
                 <div className="h-[1px] bg-[#F8F7F7] max-w-[550px] mt-5 mb-2"></div>
                 <h3 className="text-[#F8F7F7] font-normal text-[14px] tracking-wide	 ">
@@ -46,13 +46,15 @@ export default function Home() {
                 </h3>
 
                 <div className="flex pt-[50px]">
-                  <button
-                    className="try-beta-btn"
-                    onClick={() => setShowIframe(!showIframe)}
-                  >
-                    Try Beta
-                    <FaGooglePlay className="ml-3 activate-arrow" />
-                  </button>
+                  <Link href="/chat" target="_blank">
+                    <button
+                      onClick={() => setShowIframe(!showIframe)}
+                      className="try-beta-btn"
+                    >
+                      Try Beta
+                      <FaGooglePlay className="ml-3 activate-arrow" />
+                    </button>
+                  </Link>
 
                   <div className="relative border-b border-gray-500 inline-block cursor-pointer bg-[#000] mt-auto ml-auto">
                     <input
@@ -94,16 +96,15 @@ export default function Home() {
                   Supporting the most ambitious teams{" "}
                 </h3>
               </div>
-              {showIframe && (
-                <iframe
-                  className="ml-auto mr-[100px]"
-                  src="https://docsbot.ai/iframe/AQlopPkXnxW7eKsGqeSe/lnPRMgAXQgaYl0JG0uXj"
-                  width="500"
-                  height="650"
-                  frameBorder="0"
-                  allowTransparency="true"
-                ></iframe>
-              )}
+
+              <Image
+                src="/spin.gif"
+                width={700}
+                height={600}
+                alt="Spinner GIF"
+                className="mr-auto ml-auto pb-10"
+                draggable={false}
+              />
             </div>
           </div>
         </div>
